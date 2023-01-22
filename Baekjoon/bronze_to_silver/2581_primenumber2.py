@@ -6,7 +6,7 @@ def find_prime_number(M,N):
     for value in range(M,N+1):  # N도 확인해야하니 N+1까지 해야하는것 주의하기
         if value == 1:
             pass
-        elif value == 2 or value == 3:
+        elif value == 2 or value == 3:  # 굳이 2,3을 elif로 나누지 않고도 할 수 있지않을까?
             li.append(value)
         else:
             sqrt_value = int(value ** 0.5)

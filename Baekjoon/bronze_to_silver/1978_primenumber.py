@@ -1,4 +1,4 @@
-# 소수 찾기
+# 1978_소수 찾기
 
 def find_prime_number(li):
     count = 0
