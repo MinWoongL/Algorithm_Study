@@ -6,25 +6,24 @@ import math
 x, y, d, t = map(int, sys.stdin.readline().split())
 
 distance = math.sqrt(x*x+y*y)
-n = 0
 min_time = 0
-n2 = 0
+n = 0
 
 
 if d <= distance:
     while True:  # 직선거리가 아닌 방향으로 점프로 이동시에 최단시간을 재기 위해 추가
-        n2 += 1
-        if n2*d > distance:
-            break
-
-    while True:
-        distance = distance - d
         n += 1
-        if abs(distance) < d/2:
+        if n*d > distance:
             break
-
+    # while True:
+    #     distance = distance - d
+    #     n += 1
+    #     if abs(distance) < d/2:
+    #         break
+    jump = distance // d
     #  d만큼 집(0,0)에 도착직전까지 가고 걸어가기, d만큼 집을 넘어 한번 더 가서 걸어 되돌아오기 중 작은값, 점프로 외곽으로 돌아서 도착한 값
-    min_time = min(t*n + abs(distance), t*(n+1)+abs(distance-d), float(t*n2))
+    #min_time = min(t*jump + abs(distance-(d*jump)), t*(jump+1)+abs(distance-(d*jump+1)), float(t*n))
+    min_time = min(t * jump + abs(distance - (d * jump)), t * (jump + 1), distance)
 else:
     #  전부걸어가기, 한번 d만큼 간 뒤 남은거리 되돌아가기 중 작은값, 2번 점프로 도착한값
     min_time = min(abs(distance), t + (d-distance), float(t*2))
