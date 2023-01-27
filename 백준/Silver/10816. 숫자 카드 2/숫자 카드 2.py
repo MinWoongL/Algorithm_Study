@@ -15,10 +15,6 @@ for v in nli:
     if v in mdi.keys():
         mdi[v] += 1
 
-nnli = []
-for k in mdi.keys():
-    nnli.append(mdi[k])
-
 # for i in range(len(nnli)):
 #     if i != (len(nnli)-1):
 #         print(nnli[i], end=' ')
