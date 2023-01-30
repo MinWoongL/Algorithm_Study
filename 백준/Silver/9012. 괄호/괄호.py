@@ -1,24 +1,28 @@
+# 9012_괄호_Parenthesis String_bracket
+
 import sys
-from collections import deque
 
-T = int(input())
-gual_list = deque([])
+n = int(input())
 
-for i in range(T):
-    gual = sys.stdin.readline().split()
-    y = 0
-    gual_list = deque([])
-    for i in range(len(gual[0])):
-        if gual[0][i] == '(':
-            gual_list.append(1)
-        elif gual[0][i] == ')':
-            if len(gual_list) == 0:
-                y += 1
-                break
-            else:
-                gual_list.pop()
-    
-    if len(gual_list) == 0 and y == 0:
-        print('YES')
-    else:
-        print('NO')
+for i in range(n):
+    ps = list(map(str, sys.stdin.readline().strip()))
+    psb = True
+    while psb is True:
+        if len(ps) == 0:
+            print("YES")
+            break
+        elif ps[-1] == '(':
+            print("NO")
+            psb = False
+            break
+        else:
+            for i in range(len(ps)):
+                if ps[i] == ')':
+                    if ps[i-1] == '(':
+                        ps.pop(i-1)
+                        ps.pop(i-1)
+                        break
+                    else:
+                        print('NO')
+                        psb = False
+                        break
