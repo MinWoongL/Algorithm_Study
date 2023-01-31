@@ -2,7 +2,7 @@
 
 def hanoi(n, li):
     if n == 1:
-        return li.append((1,3))
+        return li.append((1, 3))
     elif n%2 == 1:
         pass
 
