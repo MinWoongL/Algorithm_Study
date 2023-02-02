@@ -11,7 +11,7 @@ def three_star_point(num):
 
         for star in star_li:
             text.append(star*3)
-            print(text)
+            # print(text)
 
         for star in star_li:
             text. append(star+' '*(num//3)+star)
@@ -25,7 +25,7 @@ def three_star_point(num):
 n = int(input())
 
 ans = three_star_point(n)
-print(ans)
+# print(ans)
 print('\n'.join(ans))
 
 
