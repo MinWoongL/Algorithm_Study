@@ -1,34 +1,40 @@
 # 24060_알고리즘 수업_병합정렬_mergesort
 import sys
 
+
 def msort(li):  # 병합정렬
+    # 종료조건으로 리스트 원소가 1개면 바로 반환
     if len(li) <= 1:
         return li
-    mid = (len(li)+1)//2
-    l_li = li[:mid]
-    r_li = li[mid:]
+    mid = (len(li) + 1) // 2
+    left_li = li[:mid]
+    right_li = li[mid:]
 
-    l_li = msort(l_li)
-    r_li = msort(r_li)
+    # 숫자열의 반을 나눠 다시 병합정렬을 한 결과를 저장 (재귀)
+    left_li = msort(left_li)
+    right_li = msort(right_li)
 
+    # 정렬된 순서를 저장해줄 리스트 선언
     s_li = []
     i, j = 0, 0
-    while i < len(l_li) and j < len(r_li):
-        if l_li[i] < r_li[j]:
-            s_li.append(l_li[i])
-            count.append(l_li[i])
+    # 정렬된 left, right 숫자열들을 순서대로 비교하여 정렬
+    while i < len(left_li) and j < len(right_li):
+        if left_li[i] < right_li[j]:
+            s_li.append(left_li[i])
+            count.append(left_li[i])
             i += 1
         else:
-            s_li.append(r_li[j])
-            count.append(r_li[j])
+            s_li.append(right_li[j])
+            count.append(right_li[j])
             j += 1
-    while i < len(l_li):
-        s_li.append(l_li[i])
-        count.append((l_li[i]))
+    # 비교 후 아직 저장되지 않은 숫자들을 마저 정렬
+    while i < len(left_li):
+        s_li.append(left_li[i])
+        count.append((left_li[i]))
         i += 1
-    while j < len(r_li):
-        s_li.append(r_li[j])
-        count.append(r_li[j])
+    while j < len(right_li):
+        s_li.append(right_li[j])
+        count.append(right_li[j])
         j += 1
     return s_li
 
@@ -42,7 +48,7 @@ msort(nli)
 if len(count) < k:
     print(-1)
 else:
-    print(count[k-1])
+    print(count[k - 1])
 
 
 
