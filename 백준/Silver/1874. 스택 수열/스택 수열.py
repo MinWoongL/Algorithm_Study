@@ -1,49 +1,40 @@
 # 1874_스택수열
-import sys
-
 n = int(input())
 
-nli = [i for i in range(1,n+1)]
+nli = [i for i in range(1, n+1)]
 stack = []
-pushpopli = []
-highnum = 0
+pp_li = []
+max_value = 0
 for i in range(n):
     num = int(input())
-    if len(stack) == 0:
-        for j in range(highnum, num):
+    if not stack:
+        for j in range(max_value, num):
             stack.append(nli[j])
-            pushpopli.append('+')
-            #print(stack)
+            pp_li.append('+')
+
         stack.pop()
-        #print(stack)
-        pushpopli.append('-')
-        highnum = num
-        #print(pushpopli)
+        pp_li.append('-')
+        max_value = num
+
     else:
         if stack[-1] == num:
             stack.pop()
-            pushpopli.append('-')
-            #print(stack)
-            #print(pushpopli)
+            pp_li.append('-')
         else:
             if num < stack[-1]:
                 print('NO')
-                pushpopli.clear()
+                pp_li.clear()
                 break
             else:
-                for k in range(highnum, num):
+                for k in range(max_value, num):
                     stack.append(nli[k])
-                    pushpopli.append('+')
-                    #print(stack)
+                    pp_li.append('+')
+
                 stack.pop()
-                #print(stack)
-                pushpopli.append('-')
-                highnum = num
-                #print(pushpopli)
-if pushpopli:
-    for v in pushpopli:
+                pp_li.append('-')
+                max_value = num
+
+if pp_li:
+    for v in pp_li:
         print(v)
-
-
-
 
