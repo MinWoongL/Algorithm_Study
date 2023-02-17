@@ -11,8 +11,6 @@ for tc in range(1, T + 1):
             room_num[0] += 1
         if room_num[1] % 2:     # 뒤쪽 방번호가 홀수면
             room_num[1] += 1
-        room
-
 
     # print(room)     # (방 번호 낮은 것, 방 번호 높은 것)
 
