@@ -44,7 +44,7 @@ for case in wall_combi:
         wall_li.append(v)
         x, y = v[0], v[1]
         mat[x][y] = 1
-
+    # test_mat = [[mat[i][j] for j in range(M)] for i in range(N)]
     test_mat = copy.deepcopy(mat)  # 처음에 copy로 했을 때 갱신이 안돼서 deepcopy 사용
     for vi in virus:
         infection(vi[0], vi[1])
