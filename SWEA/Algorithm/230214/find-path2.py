@@ -12,7 +12,6 @@ def dfs(graph, v, g, visited):
                     return 1
         return 0
 
-
 for tc in range(1, 11):
     T, E = map(int, input().split())
 
