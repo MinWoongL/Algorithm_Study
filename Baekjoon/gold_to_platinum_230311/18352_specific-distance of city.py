@@ -1,4 +1,4 @@
-# 18352_특정거리의도시찾기_specipic-distance-city
+# 18352_특정거리의도시찾기_specific-distance-city
 import sys
 from collections import deque
 input = sys.stdin.readline
