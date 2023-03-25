@@ -1,6 +1,7 @@
 import sys
-
-T = int(sys.stdin.readline())
+# 0
+input = sys.stdin.readline
+T = int(input())
 
 for _ in range(T):
     N = int(input())
