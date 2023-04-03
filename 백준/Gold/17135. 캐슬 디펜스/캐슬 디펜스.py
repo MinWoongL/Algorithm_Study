@@ -2,7 +2,7 @@
 import sys
 from itertools import combinations
 from collections import deque
-# input = sys.stdin.readline
+input = sys.stdin.readline
 
 
 def enemy_down(arr):
