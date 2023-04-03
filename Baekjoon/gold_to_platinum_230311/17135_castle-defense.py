@@ -2,7 +2,7 @@
 import sys
 from itertools import combinations
 from collections import deque
-# input = sys.stdin.readline
+input = sys.stdin.readline
 
 
 def enemy_down(arr):
@@ -55,11 +55,12 @@ for v in comb:
                         break
                     for d in dxy:
                         nx, ny = x + d[0], y + d[1]
-                        if 0 <= x <= M-1 and 0 <= y <= N-1 and dis < D:
+                        if 0 <= nx <= N-1 and 0 <= ny <= M-1 and dis < D:
                             q.append([nx, ny, dis + 1])
         for value in enemy:
-            new_field[value[0]][value[1]] = 0
-            cnt += 1
+            if new_field[value[0]][value[1]] == 1:
+                new_field[value[0]][value[1]] = 0
+                cnt += 1
 
         new_field = enemy_down(new_field)
         if new_field == 0:
