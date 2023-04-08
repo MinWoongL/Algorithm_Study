@@ -13,3 +13,4 @@ for i in range(len(dis_li)):
         cost = cost_li[i+1]
 
 print(ans)
+
