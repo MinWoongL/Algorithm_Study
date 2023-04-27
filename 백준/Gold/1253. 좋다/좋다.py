@@ -1,39 +1,30 @@
-# 1253_좋다_Good
 import sys
-input = sys.stdin.readline
 
-N = int(input())
-n_li = list(map(int, input().split()))
+N = int(sys.stdin.readline())
+num = list(map(int, sys.stdin.readline().split()))
 
-n_di = {}
-ans = 0
-for v in n_li:
-    if v in n_di.keys():
-        n_di[v] += 1
-    else:
-        n_di[v] = 1
+num.sort()
+good = 0
+for a in range(N):
+    target = num[a]
+    left, right = 0, N-1
 
-for i in range(N):
-    for j in range(i+1, N):
-        good = n_li[i] + n_li[j]
-        zeros = 0
-        if n_li[i] == 0:
-            zeros += 1
-        if n_li[j] == 0:
-            zeros += 1
-
-        if good in n_di.keys():
-            if zeros == 2:
-                if n_di[good] > 2:
-                    ans += n_di[good]
-                    n_di[good] = 0
-            elif zeros == 1:
-                if n_di[good] > 1:
-                    ans += n_di[good]
-                    n_di[good] = 0
+    while left < right:
+        # 타겟일 때
+        if num[left] + num[right] == target:
+            if left != a and right != a:
+                good += 1
+                break
+            elif left == a:
+                left += 1
             else:
-                if n_di[good] > 0:
-                    ans += n_di[good]
-                    n_di[good] = 0
+                right -= 1
+        # 타겟보다 작을 때
+        elif num[left] + num[right] < target:
+            left += 1
+        # 타겟보다 클 때
+        else:
+            right -= 1
 
-print(ans)
+
+print(good)
