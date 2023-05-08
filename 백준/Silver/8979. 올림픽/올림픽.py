@@ -12,10 +12,9 @@ for i in range(1, N+1):
 q.sort(key=lambda x: (x[1], x[2], x[3]), reverse=True)
 
 rank = 1
-for i in range(N):
-    if i != 0:
-        if q[i][1:] != q[i-1][1:]:
-            rank += 1
+for i in range(1, N):
+    if q[i][1:] != q[i-1][1:]:
+        rank += 1
     if q[i][0] == K:
         break
 
