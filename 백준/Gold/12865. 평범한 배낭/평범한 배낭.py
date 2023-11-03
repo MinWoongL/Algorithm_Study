@@ -1,31 +1,22 @@
-# 12865_평범한 배낭_knapsack
+## 백준_ 12865_ 평범한 배낭
 
-N, W = map(int, input().split())
-
-product_li = [[0, 0]]
-for i in range(N):
-    product_li.append(list(map(int, input().split())))
-
-
-# print(product_li)
-dp = [[0 for i in range(W+1)] for i in range(N+1)]
-
-
-# for pd in range(N+1):
-#     for w in range(W+1):
-#         if pd == 0 and w == 0:  # 0번 물건, 무게제한 0까지는 일단 0으로 다 채움
-#             dp[pd][w] = 0
-#         elif product_li[pd-1][0] <= w:
-#             dp[pd][w] = max(product_li[pd-1][1]+dp[pd-1][w-product_li[pd-1][0]], dp[pd-1][w])
-#         else:
-#             dp[pd][w] = dp[pd-1][w]
-
-for pd in range(1, N+1):
-    for w in range(1, W+1):
-        if product_li[pd][0] > w:
-            dp[pd][w] = dp[pd-1][w]
+N, K = map(int, input().split())  # 물품의 수 N, 최대 무게 K
+dp = [[0] * (K + 1) for _ in range(N + 1)]
+stuff = []
+for _ in range(N):
+    W, V = map(int, input().split())  # 현재 넣으려고 하는 무게 W, 가치 V
+    stuff.append((W, V))
+# for s in stuff:
+#     W, V = s
+for i in range(1, N + 1):
+    for j in range(1, K + 1):
+        W = stuff[i-1][0]
+        V = stuff[i-1][1]
+        # 현재 배낭의 무게를 초과하는 무게라면 안 넣음
+        if j < W:
+            dp[i][j] = dp[i - 1][j]
+        # 현재 물건 안넣고 가치 vs 현재 배낭 무게에서 W만큼 빼보고 더한 가치
         else:
-            dp[pd][w] = max(dp[pd-1][w], dp[pd-1][w-product_li[pd][0]] + product_li[pd][1])
+            dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - W] + V)
 
-# print(dp)
 print(dp[-1][-1])
