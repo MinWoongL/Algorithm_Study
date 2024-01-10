@@ -1,6 +1,6 @@
 # 28215_대피소
 import sys
-# input = sys.stdin.readline
+input = sys.stdin.readline
 from itertools import combinations
 
 N, K = map(int, input().split())
