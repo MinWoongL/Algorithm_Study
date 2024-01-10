@@ -1,38 +1,23 @@
-# 9935_문자열폭발_string-explosion
+# 9935_문자열 폭발
 import sys
+input = sys.stdin.readline
 
-victim = str(sys.stdin.readline().strip())
-boom = list(map(str, sys.stdin.readline().strip()))
-boom_size = len(boom)
+msg_str = list(input().strip())
+boom = list(input().strip())
+boom_len = len(boom)
+b_check = boom[-1]
 
-stack = []
-
-if boom_size == 1:
-    for s in victim:
-        if s != boom[0]:
-            stack.append(s)
-
-    if stack:
-        print(*stack, sep='')
+ans = []
+for s in msg_str:
+    if s != b_check:
+        ans.append(s)
     else:
-        print("FRULA")
+        ans.append(s)
+        if ans[-1-(boom_len-1):] == boom:
+            for i in range(boom_len):
+                ans.pop()
+
+if ans:
+    print(*ans, sep="")
 else:
-    for s in victim:
-        if not stack:
-            stack.append(s)
-        else:
-            if s != boom[-1]:
-                stack.append(s)
-            else:
-                if len(stack) >= boom_size-1:
-                    if stack[-boom_size+1:] == boom[:-1]:
-                        for i in range(boom_size-1):
-                            stack.pop()
-                    else:
-                        stack.append(s)
-                else:
-                    stack.append(s)
-    if stack:
-        print(*stack, sep='')
-    else:
-        print('FRULA')
+    print('FRULA')
