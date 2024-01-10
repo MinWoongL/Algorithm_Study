@@ -32,7 +32,7 @@ for g in graph:
         cnt += 1
         cost += w
         union(u, v)
-        if cnt == N:
+        if cnt == N-1:
             break
 
 # print(parent)
