@@ -1,39 +1,33 @@
-# 11723_집합_set
+# 11723_집합_Set
 import sys
 input = sys.stdin.readline
 
-M = int(input())
+N = int(input())
 
-all = set()
-ans = set()
-
-for i in range(1, 21):
-    all.add(i)
-
-for i in range(M):
-    w = list(map(str, input().split()))
-
-    cal = w[0]
-    num = 0
-    if cal != 'all' and cal != 'empty':
-        num = int(w[1])
-
-    if cal == 'add':
-        ans.add(num)
-    elif cal == 'remove':
-        if num in ans:
-            ans.remove(num)
-    elif cal == 'toggle':
-        if num in ans:
-            ans.remove(num)
+S = set()
+for _ in range(N):
+    order, *num = input().split()
+    if order == 'add':
+        S.add(int(num[0]))
+    elif order == 'remove':
+        tmp = int(num[0])
+        if tmp in S:
+            S.remove(tmp)
+    elif order == 'toggle':
+        tmp = int(num[0])
+        if tmp in S:
+            S.remove(tmp)
         else:
-            ans.add(num)
-    elif cal == 'all':
-        ans = all
-    elif cal == 'empty':
-        ans.clear()
+            S.add(tmp)
+    elif order == 'all':
+        S.clear()
+        for i in range(1, 21):
+            S.add(i)
+    elif order == 'empty':
+        S.clear()
     else:
-        if num in ans:
+        tmp = int(num[0])
+        if tmp in S:
             print(1)
         else:
             print(0)
