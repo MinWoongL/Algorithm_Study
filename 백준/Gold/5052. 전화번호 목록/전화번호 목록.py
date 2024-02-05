@@ -1,5 +1,4 @@
 # 5052_전화번호목록_list of phone-numbers
-# 10% 시간초과
 import sys
 input = sys.stdin.readline
 
