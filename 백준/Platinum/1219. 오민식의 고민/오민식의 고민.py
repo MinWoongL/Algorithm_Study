@@ -21,6 +21,7 @@ def Bellman_Ford(roads, p, start, goal):
     else:
         ans = distance[goal]
 
+# 사이클에 도작지점이 포함되는지 확인하는 과정이 필요
 def check_cycle(start, goal):
     visited = [False] * N
     q = [start]
@@ -33,6 +34,7 @@ def check_cycle(start, goal):
             if not visited[next_node]:
                 q.append(next_node)
     return False
+
 
 N, s, g, M = map(int, input().split())
 
