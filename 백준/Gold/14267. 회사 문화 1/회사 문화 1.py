@@ -1,6 +1,6 @@
 # 14267_회사 문화1_Business Culture
 import sys
-sys.setrecursionlimit(10**5)
+sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
 
