@@ -21,13 +21,10 @@ for i in range(N):
     h, o = home_office[i]
     if o - h > d:
         continue
-    while check:
+    while check and check[0][0] < (o - d):
         s, e = heapq.heappop(check)
         cnt -= 1
-        if s >= (o - d):
-            heapq.heappush(check, [s, e])
-            cnt += 1
-            break
+
     heapq.heappush(check, [h, o])
     cnt += 1
     if cnt > ans:
