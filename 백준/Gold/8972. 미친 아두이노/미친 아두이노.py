@@ -11,7 +11,7 @@ ardu = set()
 for i in range(R):
     for j in range(C):
         if field[i][j] == 'I':
-            player = [i, j]
+            player = [i, j] 
         elif field[i][j] == 'R':
             ardu.add((i, j))
 
@@ -25,6 +25,7 @@ for m in moves:
     player = [nx, ny]
 
     a_tmp = set()
+    # 추가
     a_remove = set()
     for a in ardu:
         tmp_x = nx - a[0]
