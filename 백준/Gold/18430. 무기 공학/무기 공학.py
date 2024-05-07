@@ -6,7 +6,7 @@ dxy = [[(1, 0), (0, -1)], [(0, -1), (-1, 0)], [(-1, 0), (0, 1)], [(1, 0), (0, 1)
 
 def bt(x, y, v, score):
     global ans
-    y += 1
+
     if y == M:
         x = x+1
         y = 0
@@ -33,12 +33,11 @@ def bt(x, y, v, score):
                 for c in tmp_cordi:
                     v[c[0]][c[1]] = 1
                 v[x][y] = 1
-                bt(x, y, v, tmp_score+score)
+                bt(x, y+1, v, tmp_score+score)
                 v[x][y] = 0
                 for c in tmp_cordi:
                     v[c[0]][c[1]] = 0
-    bt(x, y, v, score)
-
+    bt(x, y+1, v, score)
 
 
 N, M = map(int, input().split())
