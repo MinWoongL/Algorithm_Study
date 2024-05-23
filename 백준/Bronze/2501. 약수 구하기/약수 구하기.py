@@ -5,7 +5,7 @@ n, k = map(int, input().split())
 
 d_lst = []
 cnt = 0
-for i in range(1, n+1):
+for i in range(1, n//2+1):
     if not n % i:
         d_lst.append(i)
         cnt += 1
@@ -13,4 +13,7 @@ for i in range(1, n+1):
             print(i)
             break
 else:
-    print(0)
+    if cnt == k-1:
+        print(n)
+    else:
+        print(0)
