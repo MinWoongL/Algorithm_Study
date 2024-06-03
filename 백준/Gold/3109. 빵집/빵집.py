@@ -5,7 +5,6 @@ dxy = [(-1, 1), (0, 1), (1, 1)]
 
 
 def pipe_line(row, c, v):
-    global visited
     global cnt
 
     if c == C-1:
@@ -31,13 +30,9 @@ visited = [[0]*C for _ in range(R)]
 cnt = 0
 
 for r in range(R):
-    # v_c = [[visited[i][j] for j in range(C)] for i in range(R)]
     if bakery[r][0] == ".":
-        # v_c[r][0] = 1
         visited[r][0] = 1
-        # check = pipe_line(r, 0, v_c)
         if pipe_line(r, 0, visited):
             cnt += 1
-
 
 print(cnt)
