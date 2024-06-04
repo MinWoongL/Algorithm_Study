@@ -19,7 +19,7 @@ while True:
         for j in range(1, len(info)-1):
             adjL[i].append(int(info[j]))
 
-    visited = [float('inf')]*(N+1)
+    visited = [-1]*(N+1)
     ans = "No"
 
     q = deque()
@@ -44,7 +44,7 @@ while True:
             if new_m < 0:
                 continue
 
-            if visited[maze] == float('inf') or visited[maze] < new_m:
+            if visited[maze] < new_m:
                 visited[maze] = new_m
                 q.append([maze, new_m])
 
